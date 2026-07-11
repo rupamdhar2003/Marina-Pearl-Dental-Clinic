@@ -1,0 +1,13 @@
+.mp-patients__search {
+    position: relative;
+    min-inline-size: 280px;
+}
+.mp-patients__search svg {
+    position: absolute;
+    inset-inline-start: 12px;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    color: var(--mp-ink-500);
+    pointer-events: none;
+}
+.mp-patients__search .mp-input { padding-inline-start: 36px; }

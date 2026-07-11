@@ -1,0 +1,101 @@
+/* =========================================================
+   Marina Pearl — design tokens
+   Precision Dentistry, Timeless Smiles
+   ========================================================= */
+:root {
+    /* Brand */
+    --mp-teal-900: #063a3f;
+    --mp-teal-800: #0a4a51;
+    --mp-teal-700: #0d5c63;   /* primary */
+    --mp-teal-600: #167a83;
+    --mp-teal-500: #1f9aa4;
+    --mp-teal-100: #d3ecee;
+    --mp-teal-050: #edf7f8;
+
+    --mp-gold-700: #a88a44;
+    --mp-gold-600: #c9a961;   /* accent */
+    --mp-gold-500: #d8b978;
+    --mp-gold-100: #f5ecd6;
+    --mp-gold-050: #faf5e8;
+
+    /* Neutrals — warm off-white surface */
+    --mp-bg:            #fafaf7;
+    --mp-bg-alt:        #f2efe7;   /* section band */
+    --mp-surface:       #ffffff;
+    --mp-surface-tint:  #fdfcf7;
+    --mp-border:        #e5e2d5;
+    --mp-border-strong: #cfcbb9;
+
+    --mp-ink-900: #1a1a1a;   /* text */
+    --mp-ink-700: #3a3a37;
+    --mp-ink-500: #6b6b64;
+    --mp-ink-400: #8f8f86;
+
+    /* Feedback */
+    --mp-success: #2f855a;
+    --mp-success-bg: #e9f6ee;
+    --mp-error:   #c53030;
+    --mp-error-bg: #fdecec;
+    --mp-warning: #b7791f;
+
+    /* Semantic aliases */
+    --mp-primary: var(--mp-teal-700);
+    --mp-primary-hover: var(--mp-teal-800);
+    --mp-primary-fg: #ffffff;
+    --mp-accent: var(--mp-gold-600);
+    --mp-focus-ring: 0 0 0 3px rgba(13, 92, 99, 0.28);
+
+    /* Typography */
+    --mp-font-heading: 'Fraunces', 'Times New Roman', Georgia, serif;
+    --mp-font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --mp-font-body-ar: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+
+    /* Scale */
+    --mp-fs-hero:  clamp(2.5rem, 5vw + 1rem, 4.75rem);
+    --mp-fs-h1:    clamp(2rem,   3vw + 0.5rem, 3rem);
+    --mp-fs-h2:    clamp(1.6rem, 2vw + 0.4rem, 2.25rem);
+    --mp-fs-h3:    clamp(1.25rem, 1vw + 0.6rem, 1.5rem);
+    --mp-fs-lead:  1.15rem;
+    --mp-fs-body:  1rem;
+    --mp-fs-small: 0.875rem;
+    --mp-fs-eyebrow: 0.78rem;
+
+    /* Radius */
+    --mp-radius-sm: 6px;
+    --mp-radius:    12px;
+    --mp-radius-lg: 20px;
+    --mp-radius-xl: 28px;
+    --mp-radius-pill: 999px;
+
+    /* Elevation — soft, medical-professional */
+    --mp-shadow-xs: 0 1px 2px rgba(15, 30, 32, 0.06);
+    --mp-shadow-sm: 0 2px 6px rgba(15, 30, 32, 0.06), 0 1px 2px rgba(15, 30, 32, 0.04);
+    --mp-shadow-md: 0 8px 24px rgba(15, 30, 32, 0.08), 0 2px 6px rgba(15, 30, 32, 0.04);
+    --mp-shadow-lg: 0 20px 50px rgba(15, 30, 32, 0.12), 0 6px 14px rgba(15, 30, 32, 0.05);
+    --mp-shadow-inset-hero: inset 0 -80px 120px -80px rgba(6, 58, 63, 0.35);
+
+    /* Motion */
+    --mp-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --mp-t-fast: 140ms;
+    --mp-t: 220ms;
+    --mp-t-slow: 320ms;
+
+    /* Layout */
+    --mp-container: 1200px;
+    --mp-container-narrow: 880px;
+    --mp-gutter: clamp(1rem, 2.5vw, 2rem);
+    --mp-section-y: clamp(4rem, 8vw, 7rem);
+
+    /* z-index scale */
+    --mp-z-nav: 40;
+    --mp-z-float: 50;
+    --mp-z-modal: 60;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --mp-t-fast: 0ms;
+        --mp-t: 0ms;
+        --mp-t-slow: 0ms;
+    }
+}

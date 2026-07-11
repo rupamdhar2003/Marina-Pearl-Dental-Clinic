@@ -1,0 +1,78 @@
+.mp-svc-detail__err {
+    padding-block: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.mp-svc-detail__hero {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background:
+        radial-gradient(ellipse at 0 0, rgba(13, 92, 99, 0.08), transparent 55%),
+        var(--mp-bg);
+}
+.mp-svc-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.mp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--mp-ink-500);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-block-end: 1.25rem;
+    transition: color var(--mp-t) var(--mp-ease);
+}
+.mp-back:hover { color: var(--mp-teal-700); }
+
+.mp-svc-detail__copy h1 { margin-block-start: 1rem; }
+.mp-svc-detail__copy .mp-lead { margin-block-start: 1.25rem; max-inline-size: 50ch; }
+.mp-svc-detail__meta { display: flex; gap: 0.5rem; margin-block-start: 1.5rem; flex-wrap: wrap; }
+.mp-svc-detail__ctas { display: flex; gap: 0.75rem; margin-block-start: 2rem; flex-wrap: wrap; }
+
+.mp-svc-detail__media img {
+    inline-size: 100%;
+    aspect-ratio: 5/6;
+    object-fit: cover;
+    border-radius: var(--mp-radius-xl);
+    box-shadow: var(--mp-shadow-md);
+}
+
+@media (max-width: 900px) {
+    .mp-svc-detail__grid { grid-template-columns: 1fr; }
+    .mp-svc-detail__media img { aspect-ratio: 16/10; }
+}
+
+.mp-svc-detail__body {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+}
+.mp-svc-detail__body h2 {
+    font-family: var(--mp-font-heading);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-block-end: 1rem;
+}
+.mp-svc-detail__body p { color: var(--mp-ink-700); line-height: 1.75; max-inline-size: 60ch; }
+.mp-svc-detail__list { display: flex; flex-direction: column; gap: 0.75rem; }
+.mp-svc-detail__list li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    background: var(--mp-teal-050);
+    border: 1px solid var(--mp-teal-100);
+    border-radius: var(--mp-radius);
+    color: var(--mp-teal-900);
+    font-weight: 500;
+    font-size: 0.94rem;
+}
+.mp-svc-detail__list svg { color: var(--mp-teal-700); flex-shrink: 0; }
+
+@media (max-width: 800px) { .mp-svc-detail__body { grid-template-columns: 1fr; gap: 2.5rem; } }

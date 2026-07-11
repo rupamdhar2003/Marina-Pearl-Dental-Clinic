@@ -1,0 +1,24 @@
+.mp-legal { padding-block: clamp(3rem, 6vw, 5rem); }
+.mp-legal__inner { max-inline-size: 780px; }
+.mp-legal h1 { margin-block-end: 1rem; }
+.mp-legal__meta { color: var(--mp-ink-500); font-size: 0.9rem; margin-block-end: 2.5rem; }
+.mp-legal h2 {
+    font-family: var(--mp-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-block: 2rem 0.75rem;
+}
+.mp-legal p, .mp-legal li {
+    color: var(--mp-ink-700);
+    line-height: 1.75;
+    font-size: 1rem;
+}
+.mp-legal ul {
+    list-style: disc;
+    padding-inline-start: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-block: 0.5rem;
+}
+.mp-legal p + p { margin-block-start: 0.75rem; }

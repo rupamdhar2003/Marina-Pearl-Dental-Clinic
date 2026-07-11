@@ -1,0 +1,57 @@
+.mp-manage { padding-block: clamp(3rem, 6vw, 5rem); }
+.mp-manage__err { padding-block: 4rem; display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.mp-manage__inner { max-inline-size: 720px; margin-inline: auto; display: flex; flex-direction: column; gap: 1.25rem; }
+.mp-manage__inner h1 { margin-block: 0.5rem 1.5rem; }
+
+.mp-manage__card {
+    background: var(--mp-surface);
+    border: 1px solid var(--mp-border);
+    border-radius: var(--mp-radius-lg);
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--mp-shadow-sm);
+}
+.mp-manage__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.9rem;
+    border-block-end: 1px solid var(--mp-border);
+}
+.mp-manage__row:last-child { border-block-end: 0; }
+.mp-manage__row span { color: var(--mp-ink-500); font-weight: 500; }
+.mp-manage__row strong { font-family: var(--mp-font-heading); font-weight: 500; text-align: end; }
+
+.mp-manage__status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-family: var(--mp-font-body) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.mp-manage__status.is-confirmed { background: var(--mp-success-bg); color: #1e4d34; }
+.mp-manage__status.is-pending   { background: var(--mp-gold-050); color: var(--mp-gold-700); }
+.mp-manage__status.is-cancelled { background: var(--mp-error-bg); color: #6a1414; }
+.mp-manage__status.is-completed { background: var(--mp-teal-050); color: var(--mp-teal-800); }
+.mp-manage__status.is-no_show   { background: #f2f2f2; color: var(--mp-ink-500); }
+
+.mp-manage__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.mp-manage__panel {
+    background: var(--mp-surface);
+    border: 1px solid var(--mp-border);
+    border-radius: var(--mp-radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.mp-manage__panel h2 {
+    font-family: var(--mp-font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+.mp-manage__panel p { color: var(--mp-ink-700); }

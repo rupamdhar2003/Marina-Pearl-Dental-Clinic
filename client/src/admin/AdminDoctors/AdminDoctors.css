@@ -1,0 +1,34 @@
+.mp-hours {
+    display: grid;
+    gap: 0.5rem;
+    background: var(--mp-bg);
+    padding: 0.75rem;
+    border-radius: var(--mp-radius);
+    border: 1px solid var(--mp-border);
+}
+.mp-hour {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: var(--mp-radius-sm);
+    background: var(--mp-surface);
+    border: 1px solid var(--mp-border);
+}
+.mp-hour.is-off { opacity: 0.55; }
+.mp-hour__day {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--mp-ink-900);
+}
+.mp-hour__day input { accent-color: var(--mp-teal-700); inline-size: 16px; block-size: 16px; }
+.mp-hour__times {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.mp-hour__times .mp-input { padding: 0.4rem 0.6rem; min-block-size: 34px; }
+.mp-hour__times span { color: var(--mp-ink-500); }

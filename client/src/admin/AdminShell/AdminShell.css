@@ -1,0 +1,77 @@
+.mp-adm {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-block-size: 100vh;
+    background: var(--mp-bg);
+}
+.mp-adm__side {
+    background: var(--mp-teal-900);
+    color: rgba(255,255,255,0.75);
+    padding: 1.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: sticky;
+    inset-block-start: 0;
+    block-size: 100vh;
+    overflow-y: auto;
+}
+.mp-adm__brand { padding-inline: 0.5rem; padding-block-end: 0.5rem; border-block-end: 1px solid rgba(255,255,255,0.1); }
+.mp-adm__brand .mp-logo__brand,
+.mp-adm__brand .mp-logo__kicker { color: #fff !important; }
+
+.mp-adm__nav { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+.mp-adm__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: var(--mp-radius);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.94rem;
+    font-weight: 500;
+    transition: background var(--mp-t) var(--mp-ease), color var(--mp-t) var(--mp-ease);
+}
+.mp-adm__link:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.mp-adm__link.is-active {
+    background: rgba(201, 169, 97, 0.15);
+    color: var(--mp-gold-500);
+}
+.mp-adm__link svg { flex-shrink: 0; }
+
+.mp-adm__signout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--mp-radius);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background var(--mp-t) var(--mp-ease), color var(--mp-t) var(--mp-ease);
+}
+.mp-adm__signout:hover { background: rgba(255,255,255,0.05); color: #fff; }
+
+.mp-adm__main {
+    padding: 2rem 2.5rem 4rem;
+    overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+    .mp-adm { grid-template-columns: 1fr; }
+    .mp-adm__side {
+        block-size: auto;
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+    }
+    .mp-adm__brand { display: none; }
+    .mp-adm__nav { flex-direction: row; gap: 0.25rem; }
+    .mp-adm__link span { display: none; }
+    .mp-adm__link { padding: 0.6rem; }
+    .mp-adm__signout { padding: 0.5rem 0.75rem; }
+    .mp-adm__main { padding: 1.5rem 1rem 3rem; }
+}

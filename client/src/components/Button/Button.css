@@ -1,0 +1,106 @@
+.mp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-family: var(--mp-font-body);
+    font-weight: 600;
+    line-height: 1;
+    border-radius: var(--mp-radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color var(--mp-t) var(--mp-ease), color var(--mp-t) var(--mp-ease),
+                border-color var(--mp-t) var(--mp-ease), box-shadow var(--mp-t) var(--mp-ease),
+                transform var(--mp-t) var(--mp-ease);
+    white-space: nowrap;
+    min-block-size: 44px;         /* WCAG touch target */
+    padding-inline: 1.5rem;
+    padding-block: 0.85rem;
+    letter-spacing: 0.005em;
+    border: 1px solid transparent;
+    user-select: none;
+}
+.mp-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+.mp-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--mp-focus-ring);
+}
+
+.mp-btn__icon { display: inline-flex; align-items: center; }
+.mp-btn__icon svg { inline-size: 1.05em; block-size: 1.05em; }
+
+/* ---- variants ---- */
+.mp-btn--primary {
+    background: var(--mp-teal-700);
+    color: var(--mp-primary-fg);
+    box-shadow: 0 4px 14px rgba(13, 92, 99, 0.25);
+}
+.mp-btn--primary:hover:not(:disabled) {
+    background: var(--mp-teal-800);
+    box-shadow: 0 8px 22px rgba(13, 92, 99, 0.28);
+}
+.mp-btn--primary:active:not(:disabled) { background: var(--mp-teal-900); }
+
+.mp-btn--secondary {
+    background: transparent;
+    color: var(--mp-teal-700);
+    border-color: var(--mp-teal-700);
+}
+.mp-btn--secondary:hover:not(:disabled) {
+    background: var(--mp-teal-050);
+}
+
+.mp-btn--ghost {
+    background: transparent;
+    color: var(--mp-ink-900);
+    padding-inline: 0.75rem;
+    min-block-size: 40px;
+}
+.mp-btn--ghost:hover:not(:disabled) { color: var(--mp-teal-700); background: rgba(13, 92, 99, 0.05); }
+
+.mp-btn--gold {
+    background: var(--mp-gold-600);
+    color: #1c1a10;
+    box-shadow: 0 4px 14px rgba(201, 169, 97, 0.35);
+}
+.mp-btn--gold:hover:not(:disabled) { background: var(--mp-gold-700); color: #fff; }
+
+.mp-btn--danger {
+    background: var(--mp-error);
+    color: #fff;
+}
+.mp-btn--danger:hover:not(:disabled) { background: #a72525; }
+
+.mp-btn--onDark {
+    background: #fff;
+    color: var(--mp-teal-800);
+}
+.mp-btn--onDark:hover:not(:disabled) { background: var(--mp-gold-100); }
+
+/* ---- sizes ---- */
+.mp-btn--sm {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    font-size: 0.875rem;
+    min-block-size: 38px;
+}
+.mp-btn--md { font-size: 0.98rem; }
+.mp-btn--lg {
+    padding-inline: 1.85rem;
+    padding-block: 1.05rem;
+    font-size: 1.05rem;
+}
+
+.mp-btn--block { display: flex; inline-size: 100%; }
+
+.mp-btn--loading .mp-btn__label { opacity: 0.6; }
+.mp-btn--loading::after {
+    content: '';
+    inline-size: 14px; block-size: 14px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    animation: mp-spin 700ms linear infinite;
+    margin-inline-start: 0.35rem;
+}
+@keyframes mp-spin { to { transform: rotate(360deg); } }

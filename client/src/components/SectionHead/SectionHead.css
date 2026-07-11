@@ -1,0 +1,16 @@
+.mp-sh { max-inline-size: 780px; margin-block-end: 3rem; }
+.mp-sh--center { margin-inline: auto; text-align: center; }
+.mp-sh__title {
+    margin-block-start: 1rem;
+    font-family: var(--mp-font-heading);
+    font-weight: 500;
+    line-height: 1.1;
+}
+.mp-sh__sub {
+    margin-block-start: 1rem;
+    color: var(--mp-ink-700);
+    font-size: var(--mp-fs-lead);
+    line-height: 1.55;
+    max-inline-size: 62ch;
+}
+.mp-sh--center .mp-sh__sub { margin-inline: auto; }

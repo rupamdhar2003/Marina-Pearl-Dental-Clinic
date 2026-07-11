@@ -1,0 +1,67 @@
+.mp-drs-hero {
+    padding-block: clamp(4rem, 8vw, 6rem) clamp(2rem, 4vw, 3rem);
+    background:
+        radial-gradient(ellipse at 90% 0%, rgba(201, 169, 97, 0.10), transparent 55%),
+        var(--mp-bg);
+}
+.mp-drs-hero h1 { margin-block-start: 1rem; }
+.mp-drs-hero h1 em {
+    font-style: italic;
+    background: linear-gradient(180deg, var(--mp-teal-600), var(--mp-teal-800));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.mp-drs-hero .mp-lead { margin-block-start: 1.5rem; }
+
+.mp-drs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.mp-dr-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--mp-surface);
+    border: 1px solid var(--mp-border);
+    border-radius: var(--mp-radius-lg);
+    overflow: hidden;
+    transition: transform var(--mp-t) var(--mp-ease), box-shadow var(--mp-t) var(--mp-ease);
+}
+.mp-dr-card:hover { transform: translateY(-4px); box-shadow: var(--mp-shadow-md); }
+.mp-dr-card__photo {
+    aspect-ratio: 4/5;
+    background: var(--mp-teal-050);
+    overflow: hidden;
+}
+.mp-dr-card__photo img {
+    inline-size: 100%; block-size: 100%;
+    object-fit: cover;
+    transition: transform var(--mp-t-slow) var(--mp-ease);
+}
+.mp-dr-card:hover .mp-dr-card__photo img { transform: scale(1.05); }
+.mp-dr-card__body { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+.mp-dr-card__cred {
+    font-size: var(--mp-fs-eyebrow);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mp-gold-700);
+    font-weight: 600;
+}
+.mp-dr-card__body h2 {
+    font-family: var(--mp-font-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.mp-dr-card__spec { color: var(--mp-teal-800); font-weight: 500; }
+.mp-dr-card__bio { color: var(--mp-ink-700); font-size: 0.95rem; line-height: 1.55; }
+.mp-dr-card__langs {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--mp-ink-500); font-size: 0.85rem;
+    padding-block-start: 0.5rem;
+    border-block-start: 1px solid var(--mp-border);
+    margin-block-start: 0.5rem;
+}
+.mp-dr-card__actions { display: flex; gap: 0.5rem; margin-block-start: auto; flex-wrap: wrap; padding-block-start: 1rem; }
+
+@media (max-width: 900px) { .mp-drs-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .mp-drs-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,91 @@
+{
+    "brand": {
+        "name": "Marina Pearl",
+        "nameFull": "Marina Pearl Dental Clinic",
+        "tagline": "Precision Dentistry, Timeless Smiles"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "doctors": "Doctors",
+        "contact": "Contact",
+        "book": "Book Now",
+        "admin": "Staff"
+    },
+    "cta": {
+        "book": "Book an Appointment",
+        "call": "Call the Clinic",
+        "whatsapp": "Chat on WhatsApp",
+        "learnMore": "Learn more",
+        "seeAll": "See all",
+        "backHome": "Back to home"
+    },
+    "hero": {
+        "eyebrow": "Dubai Marina · Est. 2018",
+        "titleA": "Precision dentistry,",
+        "titleB": "timeless smiles.",
+        "sub": "A boutique dental practice in Dubai Marina — same-day appointments, English & Arabic-speaking specialists, and a calm space designed for people who don't love the dentist.",
+        "primary": "Book Now",
+        "secondary": "Meet the Team"
+    },
+    "trust": {
+        "yearsHeading": "Boutique care since 2018",
+        "yearsBody": "Marina Pearl is a five-chair practice built around three specialist dentists and a philosophy: technology should make your visit shorter, not louder.",
+        "bullets": [
+            "Digital scanners — no impressions, no gagging",
+            "Same-day emergency appointments",
+            "English · Arabic · Hindi · Italian · Malayalam"
+        ]
+    },
+    "services": {
+        "heading": "What we do",
+        "sub": "Every treatment is planned around your teeth, your budget, and the twelve months of your life we don't want to interrupt."
+    },
+    "doctors": {
+        "heading": "Meet your dentists",
+        "sub": "Three specialists. Twenty-plus years of combined experience. One shared conviction: gentle care outperforms rushed care."
+    },
+    "testimonials": {
+        "heading": "What our patients say"
+    },
+    "contactBlock": {
+        "heading": "Find us in Dubai Marina",
+        "address": "Marina Plaza, Level 12, Dubai Marina",
+        "phone": "+971 4 000 0000",
+        "whatsapp": "+971 50 000 0000",
+        "email": "hello@marinapearldental.example",
+        "hoursHeading": "Opening hours",
+        "hoursWeek": "Saturday – Thursday · 9:00 – 21:00",
+        "hoursFri":  "Friday · 14:00 – 21:00"
+    },
+    "footer": {
+        "rights": "© 2026 Marina Pearl Dental Clinic. Fictional demo — all names, addresses and images are placeholders.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+    },
+    "booking": {
+        "steps": ["Service", "Doctor", "Time", "Details", "Confirm"],
+        "servicePrompt": "What are you booking today?",
+        "doctorPrompt": "Who would you like to see?",
+        "anyDoctor": "Any available doctor",
+        "anyDoctorSub": "We'll choose the earliest specialist match.",
+        "datePrompt": "Pick a date",
+        "slotPrompt": "Available times (Dubai time)",
+        "noSlots": "No slots available on that day. Try another date.",
+        "detailsPrompt": "Almost done. A few details.",
+        "namePlaceholder": "Full name",
+        "emailPlaceholder": "you@example.com",
+        "phonePlaceholder": "50 123 4567",
+        "consent": "I agree to the Privacy Policy and consent to Marina Pearl Dental collecting and processing my personal data to manage my appointment.",
+        "confirmPrompt": "Review your booking",
+        "confirmCta": "Confirm booking",
+        "back": "Back",
+        "next": "Next",
+        "successHeading": "You're booked.",
+        "successBody": "We've sent a confirmation to your email. You can reschedule or cancel any time up to 24 hours before.",
+        "reference": "Booking reference",
+        "sendWhatsapp": "Send confirmation to WhatsApp",
+        "bookAnother": "Book another"
+    }
+}

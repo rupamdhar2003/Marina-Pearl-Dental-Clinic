@@ -1,0 +1,38 @@
+.mp-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: inherit;
+    font-family: var(--mp-font-heading);
+}
+.mp-logo__mark {
+    inline-size: 34px;
+    block-size: 34px;
+    flex-shrink: 0;
+}
+.mp-logo__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+.mp-logo__brand {
+    font-family: var(--mp-font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+}
+.mp-logo__kicker {
+    font-family: var(--mp-font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--mp-ink-500);
+    margin-block-start: 3px;
+}
+.mp-logo--light .mp-logo__brand { color: #fff; }
+.mp-logo--light .mp-logo__kicker { color: rgba(255, 255, 255, 0.6); }
+
+@media (max-width: 520px) {
+    .mp-logo__kicker { display: none; }
+}

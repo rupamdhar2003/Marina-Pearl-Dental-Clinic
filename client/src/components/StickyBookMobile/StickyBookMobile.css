@@ -1,0 +1,26 @@
+.mp-sticky-book {
+    display: none;
+    position: fixed;
+    inset-inline: 16px;
+    inset-block-end: 20px;
+    z-index: var(--mp-z-float);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--mp-radius-pill);
+    background: var(--mp-teal-700);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 12px 30px rgba(13, 92, 99, 0.35), 0 4px 8px rgba(0,0,0,0.1);
+    transition: background var(--mp-t) var(--mp-ease), transform var(--mp-t) var(--mp-ease);
+    min-block-size: 52px;
+}
+.mp-sticky-book:hover { background: var(--mp-teal-800); }
+.mp-sticky-book:active { transform: scale(0.98); }
+
+@media (max-width: 720px) {
+    .mp-sticky-book { display: inline-flex; }
+    body { padding-block-end: 88px; }
+}

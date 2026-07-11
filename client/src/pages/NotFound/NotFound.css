@@ -1,0 +1,10 @@
+.mp-404 {
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background:
+        radial-gradient(ellipse at 50% 0, rgba(13, 92, 99, 0.06), transparent 55%),
+        var(--mp-bg);
+}
+.mp-404__inner { text-align: center; max-inline-size: 640px; margin-inline: auto; }
+.mp-404__inner h1 { margin-block-start: 1rem; }
+.mp-404__inner .mp-lead { margin-block: 1.25rem 2rem; margin-inline: auto; }
+.mp-404__ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }

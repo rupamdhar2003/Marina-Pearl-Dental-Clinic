@@ -1,0 +1,67 @@
+.mp-footer {
+    background: linear-gradient(180deg, var(--mp-teal-900), #041e21);
+    color: rgba(255, 255, 255, 0.72);
+    padding-block-start: 4.5rem;
+    margin-block-start: 4rem;
+}
+.mp-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+    gap: 3rem 2rem;
+    padding-block-end: 3.5rem;
+}
+.mp-footer__brand p { margin-block-start: 1rem; max-inline-size: 26ch; color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+.mp-footer__heading {
+    color: #fff;
+    font-family: var(--mp-font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-block-end: 1rem;
+    font-weight: 600;
+}
+.mp-footer__col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.mp-footer__col a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.94rem;
+    transition: color var(--mp-t) var(--mp-ease);
+}
+.mp-footer__col a:hover { color: var(--mp-gold-500); }
+
+.mp-footer__contact { display: flex; flex-direction: column; }
+.mp-footer__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: rgba(255, 255, 255, 0.72);
+    padding-block: 0.35rem;
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+.mp-footer__row svg { color: var(--mp-gold-500); flex-shrink: 0; margin-block-start: 3px; }
+.mp-footer__row:hover:not(div) { color: var(--mp-gold-500); }
+
+.mp-footer__base {
+    border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+    padding-block: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+.mp-footer__baseInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.mp-footer__baseLinks { display: flex; gap: 1.5rem; }
+.mp-footer__baseLinks a:hover { color: var(--mp-gold-500); }
+
+@media (max-width: 900px) {
+    .mp-footer__grid { grid-template-columns: 1fr 1fr; }
+    .mp-footer__brand { grid-column: 1 / -1; }
+    .mp-footer__contact { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+    .mp-footer__grid { grid-template-columns: 1fr; }
+}
