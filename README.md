@@ -156,9 +156,9 @@ npm run seed
 ### How the routing works
 
 - Files in `api/` are auto-detected as Vercel serverless functions.
-- `api/[[...path]].js` is a catch-all — it re-exports the Express app from `server/src/index.js`, so all `/api/*` traffic hits the same function.
-- `vercel.json` rewrites everything *except* `/api/*` to `/index.html` (React Router handles the rest).
-- `app.listen()` in `server/src/index.js` is guarded by an entry-point check — it only binds a port in local `npm run dev`, never in serverless.
+- `server/api/api.js` is a thin re-export of the Express app from `server/src/server.js`. `vercel.json` registers it under `functions` and rewrites every `/api/*` request to it, so all API traffic hits the same function.
+- The catch-all rewrite (`/((?!api/).*)` → `/index.html`) sends everything else to the SPA (React Router handles the rest).
+- `app.listen()` in `server/src/server.js` is guarded by an entry-point check — it only binds a port in local `npm run dev`, never in serverless.
 
 ## Scripts
 

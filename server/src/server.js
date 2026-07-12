@@ -32,7 +32,7 @@ app.use(errorHandler);
 
 // Only listen when run directly (Vercel serverless / tests import the app).
 // `pathToFileURL(argv[1])` matches `import.meta.url` when this file IS the
-// entry point (i.e. `node src/index.js`), false when Vercel imports it.
+// entry point (i.e. `node src/server.js`), false when Vercel imports it.
 import { pathToFileURL } from 'node:url';
 const isEntryPoint = process.argv[1]
     && import.meta.url === pathToFileURL(process.argv[1]).href;

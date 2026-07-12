@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch --env-file=../.env src/index.js",
-    "start": "node --env-file=../.env src/index.js",
+    "dev": "node --watch --env-file=../.env src/server.js",
+    "start": "node --env-file=../.env src/server.js",
     "seed": "node --env-file=../.env seeds/seed.js"
   },
   "dependencies": {
