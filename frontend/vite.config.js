@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 // Load env from the repo root so VITE_* vars in the shared .env reach the
-// browser. Without this, Vite defaults to the client/ workspace, which has
+// browser. Without this, Vite defaults to the frontend/ workspace, which has
 // no .env of its own.
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
