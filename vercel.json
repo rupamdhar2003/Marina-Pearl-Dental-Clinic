@@ -4,7 +4,9 @@
     "installCommand": "npm install",
     "framework": null,
     "functions": {
-        "server/api/api.js": {}
+        "server/api/api.js": {
+            "maxDuration": 10
+        }
     },
     "rewrites": [
         { "source": "/api/(.*)", "destination": "/server/api/api" },
