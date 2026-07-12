@@ -124,8 +124,17 @@ router.post('/appointments', async (req, res, next) => {
             .single();
         if (error) throw error;
 
-        // Fire-and-log email (does not block response).
-        sendConfirmationEmail({ appointment: appt, doctor, service }).catch(() => {});
+        // Await the email BEFORE responding. On Vercel serverless the runtime
+        // freezes the container as soon as the response is sent, so any
+        // in-flight fetch (like the one to Resend) gets paused until the next
+        // invocation — which is why booking N's email would arrive when
+        // booking N+1 hits the same warm container. try/catch so a failed
+        // send doesn't 500 an otherwise-successful booking.
+        try {
+            await sendConfirmationEmail({ appointment: appt, doctor, service });
+        } catch (mailErr) {
+            console.error('sendConfirmationEmail failed (booking still confirmed):', mailErr?.message);
+        }
 
         res.status(201).json({ appointment: appt, doctor: { name: doctor.name }, service: { name: service.name } });
     } catch (e) { next(e); }
