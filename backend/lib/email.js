@@ -229,7 +229,7 @@ export async function sendConfirmationEmail({ appointment, doctor, service }) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                from: 'Maria Dental <maria.dental@rupamagency.com>',
+                from: 'Marina Dental <marina.dental@rupamagency.com>',
                 to: appointment.patient_email,
                 subject: '🦷 Your Appointment is Confirmed',
                 text,      // fallback for clients that don't render HTML
