@@ -20,17 +20,17 @@ export default function AdminLogin() {
         try {
             const { data, error } = await supabase.auth.signInWithPassword({ email, password: pw });
             if (error) throw error;
-            
+
             const { data: prof } = await supabase.from('mp_profiles').select('role').eq('id', data.user.id).single();
             if (prof?.role !== 'staff') {
                 await supabase.auth.signOut();
                 throw new Error('This account is not a staff account.');
             }
             nav('/admin');
-        } 
+        }
         catch (e) {
             setErr(e.message || 'Sign-in failed');
-        } 
+        }
         finally { setBusy(false); }
     }
 

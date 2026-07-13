@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Sparkles, Clock3, Baby, Stethoscope, Smile,
-    Zap, HeartPulse, Star, Quote, Phone, MessageCircle } from 'lucide-react';
+    Zap, HeartPulse, Star, Quote, Phone } from 'lucide-react';
 import Button from '../../components/Button/Button.jsx';
 import SectionHead from '../../components/SectionHead/SectionHead.jsx';
+import WhatsAppIcon from '../../components/Icons/WhatsAppIcon.jsx';
 import { api } from '../../lib/api.js';
 import { useI18n } from '../../lib/i18n.jsx';
 import './Home.css';
@@ -287,7 +288,7 @@ export default function Home() {
                                     className="mp-cta__ghost">
                                 +971 4 000 0000
                             </Button>
-                            <Button as="a" href="https://wa.me/971500000000" variant="ghost" size="lg" leftIcon={<MessageCircle size={18} />}
+                            <Button as="a" href="https://wa.me/971500000000" variant="ghost" size="lg" leftIcon={<WhatsAppIcon size={18} />}
                                     className="mp-cta__ghost">
                                 WhatsApp
                             </Button>

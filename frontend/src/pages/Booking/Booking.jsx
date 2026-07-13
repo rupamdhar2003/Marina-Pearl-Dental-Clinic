@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CalendarCheck, CheckCircle2, MessageCircle, Sparkles, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CalendarCheck, CheckCircle2, Sparkles, Star } from 'lucide-react';
 import { z } from 'zod';
 import Button from '../../components/Button/Button.jsx';
 import Stepper from '../../components/Stepper/Stepper.jsx';
 import Spinner from '../../components/Spinner/Spinner.jsx';
 import Alert from '../../components/Alert/Alert.jsx';
+import WhatsAppIcon from '../../components/Icons/WhatsAppIcon.jsx';
 import { api } from '../../lib/api.js';
 import { formatPriceRange, formatDubai, shortRef } from '../../lib/format.js';
 import { useI18n } from '../../lib/i18n.jsx';
@@ -203,7 +204,7 @@ export default function Booking() {
 
                     <div className="mp-book__success-ctas">
                         <Button as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-                                variant="gold" leftIcon={<MessageCircle size={16} />}>
+                                variant="gold" leftIcon={<WhatsAppIcon size={16} />}>
                             Send confirmation to WhatsApp
                         </Button>
                         <Button as={Link} to={`/manage/${result.appointment.reschedule_token}`} variant="secondary">

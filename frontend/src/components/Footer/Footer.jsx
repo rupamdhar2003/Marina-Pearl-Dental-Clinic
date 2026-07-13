@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, MessageCircle, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Logo from '../Logo/Logo.jsx';
+import WhatsAppIcon from '../Icons/WhatsAppIcon.jsx';
 import { useI18n } from '../../lib/i18n.jsx';
 import './Footer.css';
 
@@ -45,7 +46,7 @@ export default function Footer() {
                         <Phone size={16} aria-hidden="true" /> +971 4 000 0000
                     </a>
                     <a href="https://wa.me/971500000000" className="mp-footer__row">
-                        <MessageCircle size={16} aria-hidden="true" /> +971 50 000 0000
+                        <WhatsAppIcon size={16} /> +971 50 000 0000
                     </a>
                     <a href="mailto:hello@marinapearldental.example" className="mp-footer__row">
                         <Mail size={16} aria-hidden="true" /> hello@marinapearldental.example

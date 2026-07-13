@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { MapPin, Phone, MessageCircle, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { z } from 'zod';
 import Button from '../../components/Button/Button.jsx';
 import Alert from '../../components/Alert/Alert.jsx';
+import WhatsAppIcon from '../../components/Icons/WhatsAppIcon.jsx';
 import { api } from '../../lib/api.js';
 import './Contact.css';
 
@@ -68,7 +69,7 @@ export default function Contact() {
                             </div>
                         </a>
                         <a href="https://wa.me/971500000000" className="mp-contact__info">
-                            <span className="mp-contact__ic"><MessageCircle size={18} /></span>
+                            <span className="mp-contact__ic"><WhatsAppIcon size={18} /></span>
                             <div>
                                 <span className="mp-contact__lbl">WhatsApp</span>
                                 <span className="mp-contact__val">+971 50 000 0000</span>
