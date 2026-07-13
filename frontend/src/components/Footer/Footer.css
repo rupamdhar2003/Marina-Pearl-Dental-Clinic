@@ -1,8 +1,7 @@
 .mp-footer {
-    background: linear-gradient(180deg, var(--mp-teal-900), #041e21);
+    background: #041e21;
     color: rgba(255, 255, 255, 0.72);
     padding-block-start: 4.5rem;
-    margin-block-start: 4rem;
 }
 .mp-footer__grid {
     display: grid;
@@ -20,13 +19,23 @@
     margin-block-end: 1rem;
     font-weight: 600;
 }
-.mp-footer__col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.mp-footer__col ul { display: flex; flex-direction: column; gap: 0.5rem; }
 .mp-footer__col a {
+    display: inline-flex;
+    align-items: center;
     color: rgba(255, 255, 255, 0.72);
     font-size: 0.94rem;
+    /* Ensure comfortable touch targets on mobile without inflating desktop rhythm. */
+    min-block-size: 32px;
+    padding-block: 0.35rem;
     transition: color var(--mp-t) var(--mp-ease);
 }
 .mp-footer__col a:hover { color: var(--mp-gold-500); }
+@media (max-width: 720px) {
+    .mp-footer__col a { min-block-size: 44px; }
+    .mp-footer__row { padding-block: 0.6rem; }
+    .mp-footer__row a, a.mp-footer__row { min-block-size: 44px; align-items: center; }
+}
 
 .mp-footer__contact { display: flex; flex-direction: column; }
 .mp-footer__row {

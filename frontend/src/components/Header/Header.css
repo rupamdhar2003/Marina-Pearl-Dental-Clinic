@@ -105,18 +105,23 @@
 }
 .mp-header__burger:hover { background: rgba(0,0,0,0.05); }
 
-/* ---- Mobile ---- */
+/* ---- Mobile ----
+   The parent .mp-header has `backdrop-filter`, which establishes a new
+   containing block for fixed descendants — so `inset-block-end: 0` would
+   collapse against the header (~72px tall) instead of the viewport bottom.
+   Use an explicit height derived from the dynamic viewport instead. */
 .mp-header__mobile {
     position: fixed;
     inset-block-start: 72px;
     inset-inline: 0;
-    inset-block-end: 0;
+    block-size: calc(100dvh - 72px);
     background: var(--mp-bg);
     border-block-start: 1px solid var(--mp-border);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    z-index: var(--mp-z-nav);
 }
 .mp-header__mobile nav {
     display: flex;

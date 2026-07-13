@@ -52,7 +52,7 @@ function buildBody({ appointment, doctor, service }) {
     <!-- Header -->
     <tr>
     <td style="background:#0f766e;padding:40px;text-align:center;color:white;">
-    <h1 style="margin:0;font-size:30px;">🦷 Marina Pearl Dental Clinic</h1>
+    <h1 style="margin:0;font-size:30px;">Marina Pearl Dental Clinic</h1>
     <p style="margin-top:10px;font-size:16px;opacity:.9;">
     Your Appointment is Confirmed
     </p>
@@ -231,7 +231,7 @@ export async function sendConfirmationEmail({ appointment, doctor, service }) {
             body: JSON.stringify({
                 from: 'Marina Dental <marina.dental@rupamagency.com>',
                 to: appointment.patient_email,
-                subject: '🦷 Your Appointment is Confirmed',
+                subject: 'Confirmed - Marina Dental Appointment',
                 text,      // fallback for clients that don't render HTML
                 html,      // rich email
             }),

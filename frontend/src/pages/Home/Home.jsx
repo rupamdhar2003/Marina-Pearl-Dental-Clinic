@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Sparkles, Clock3, Baby, Stethoscope, Smile,
     Zap, HeartPulse, Star, Quote, Phone, MessageCircle } from 'lucide-react';
 import Button from '../../components/Button/Button.jsx';
 import SectionHead from '../../components/SectionHead/SectionHead.jsx';
+import { api } from '../../lib/api.js';
 import { useI18n } from '../../lib/i18n.jsx';
 import './Home.css';
 
@@ -15,19 +17,21 @@ const SERVICES = [
     { slug: 'emergency',        name: 'Emergency Care',      icon: <Zap />,         tag: 'Same day',       line: 'Same-day slots for pain or trauma.' },
 ];
 
-const DOCTORS = [
-    { id: '1', name: 'Dr. Farah Al Zaabi',
+// Fallback shown only if the API is unreachable. Real ids come from the API
+// so "Read profile" links resolve to /doctors/<real-uuid>.
+const DOCTOR_FALLBACK = [
+    { id: 'fallback-1', name: 'Dr. Farah Al Zaabi',
       credentials: 'BDS, MSc',
       specialty: 'Cosmetic & Restorative',
-      photo: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&auto=format&fit=crop' },
-    { id: '2', name: 'Dr. Nikhil Chandran',
+      photo_url: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&auto=format&fit=crop' },
+    { id: 'fallback-2', name: 'Dr. Nikhil Chandran',
       credentials: 'BDS, MDS',
       specialty: 'Orthodontics & Invisalign',
-      photo: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&auto=format&fit=crop' },
-    { id: '3', name: 'Dr. Elena Rossi',
+      photo_url: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&auto=format&fit=crop' },
+    { id: 'fallback-3', name: 'Dr. Elena Rossi',
       credentials: 'DDS',
       specialty: 'Pediatric & Preventive',
-      photo: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&auto=format&fit=crop' },
+      photo_url: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&auto=format&fit=crop' },
 ];
 
 const TESTIMONIALS = [
@@ -53,6 +57,13 @@ const TRUST_STATS = [
 
 export default function Home() {
     const { t } = useI18n();
+    const [doctors, setDoctors] = useState(DOCTOR_FALLBACK);
+
+    useEffect(() => {
+        api.doctors()
+            .then((r) => { if (r?.doctors?.length) setDoctors(r.doctors); })
+            .catch(() => { /* keep the fallback */ });
+    }, []);
 
     return (
         <>
@@ -215,10 +226,10 @@ export default function Home() {
                         subtitle={t('doctors.sub')}
                     />
                     <div className="mp-doctors">
-                        {DOCTORS.map((d) => (
+                        {doctors.map((d) => (
                             <Link to={`/doctors/${d.id}`} key={d.id} className="mp-doctor">
                                 <div className="mp-doctor__photo">
-                                    <img src={d.photo} alt={`${d.name} — ${d.specialty}`} loading="lazy" />
+                                    <img src={d.photo_url} alt={`${d.name} — ${d.specialty}`} loading="lazy" />
                                     <div className="mp-doctor__overlay" aria-hidden="true">
                                         <span>Read profile</span>
                                         <ArrowRight size={16} />

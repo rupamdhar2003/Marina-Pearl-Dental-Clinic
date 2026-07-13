@@ -395,6 +395,137 @@
     .mp-book__panel { padding: 1.5rem; }
 }
 
+/* =========================================================
+   Mobile (≤560px) — tighter padding, restacked cards, larger
+   touch targets and a smaller summary card that doesn't push
+   the wizard below the fold on the initial paint.
+   ========================================================= */
+@media (max-width: 560px) {
+    .mp-book { padding-block: 1.25rem; }
+    .mp-book__header { gap: 1rem; margin-block-end: 1.25rem; }
+    .mp-book__header h1 { font-size: 1.35rem; margin-block-start: 0.25rem; }
+    .mp-book__stepper { padding: 0.75rem 0.9rem; border-radius: var(--mp-radius); }
+
+    /* Panel — clip anything that tries to escape (belt-and-braces
+       for wide grid children like the date strip). */
+    .mp-book__panel {
+        padding: 1.15rem;
+        border-radius: var(--mp-radius);
+        min-block-size: 0;
+        min-inline-size: 0;
+        overflow-x: clip;
+        gap: 1.25rem;
+    }
+    .mp-step { gap: 1rem; min-inline-size: 0; }
+    .mp-step h2 { font-size: 1.2rem; line-height: 1.25; overflow-wrap: break-word; }
+
+    /* Choice cards (service list) — restack so the name gets full
+       width; price chip + duration sit on their own row below.
+       Fixes the 107/112px grid squeeze on mobile. */
+    .mp-choice {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1rem 1.15rem;
+    }
+    .mp-choice__meta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: start;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+    .mp-choice__main h3 { font-size: 1.05rem; }
+
+    /* Doctor picks (already single-column at 700px) — slightly
+       tighter padding. */
+    .mp-doctor-pick { padding: 0.85rem 1rem; gap: 0.85rem; }
+    .mp-doctor-pick h3 { font-size: 1rem; }
+    .mp-doctor-pick p { font-size: 0.82rem; }
+
+    /* Date strip — must allow horizontal scroll inside itself without
+       expanding its parent. `min-inline-size: 0` on both is the fix
+       for the grid/flex auto-min-content trap that lets 14 cells
+       (840+px total) push the whole page wider than the viewport. */
+    .mp-datestrip {
+        min-inline-size: 0;
+        margin-inline: calc(-1 * 1.15rem);   /* bleed to panel edge */
+        padding-inline: 1.15rem;
+        gap: 0.4rem;
+    }
+    .mp-datestrip__day { min-inline-size: 56px; padding: 0.6rem 0.7rem; }
+    .mp-datestrip__num { font-size: 1.2rem; }
+
+    /* Slots — 3-across, but each slot must be allowed to shrink
+       below its content size so a long doctor name can't push
+       the column wider than 1fr. */
+    .mp-slots {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.4rem;
+    }
+    .mp-slot {
+        padding: 0.55rem 0.3rem;
+        min-block-size: 54px;
+        min-inline-size: 0;
+        overflow: hidden;
+    }
+    .mp-slot__time { font-size: 0.98rem; }
+    .mp-slot__doc {
+        max-inline-size: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.65rem;
+    }
+
+    /* Nav row */
+    .mp-book__nav { padding-block-start: 1rem; gap: 0.5rem; }
+    .mp-book__nav .mp-btn { padding-inline: 1rem; }
+
+    /* Review rows — stack label above value so long values
+       (like the full timestamp) don't get squeezed. */
+    .mp-book__review-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        padding: 0.85rem 1rem;
+    }
+    .mp-book__review-row strong { text-align: start; }
+
+    /* Details form + consent */
+    .mp-consent { padding: 0.85rem 1rem; font-size: 0.88rem; }
+
+    /* Summary side-card — much less padding, condensed labels */
+    .mp-book__side { gap: 0.85rem; }
+    .mp-book__summary { padding: 1.15rem 1.25rem; border-radius: var(--mp-radius); }
+    .mp-book__summary h3 { margin-block-end: 0.85rem; }
+    .mp-book__summary-list { gap: 0.75rem; }
+    .mp-book__summary-list > div { padding-block-end: 0.75rem; }
+    .mp-book__summary-list strong { font-size: 0.95rem; }
+
+    /* Trust chip — hide on very small screens; it's decoration */
+    .mp-book__trust { display: none; }
+
+    /* ---- Success screen ---- */
+    .mp-book--success { padding-block: 2rem; }
+    .mp-book__success-badge {
+        inline-size: 64px; block-size: 64px;
+        margin-block-end: 1rem;
+    }
+    .mp-book__success-badge svg { inline-size: 30px; block-size: 30px; }
+    .mp-book__success-inner .mp-lead { margin-block: 1rem 1.75rem; }
+    .mp-book__success-card { padding: 1.15rem 1.15rem; }
+    .mp-book__success-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        padding-block: 0.75rem;
+    }
+    .mp-book__success-row strong { text-align: start; }
+    .mp-book__success-ctas { flex-direction: column; margin-block-start: 1.5rem; }
+    .mp-book__success-ctas .mp-btn { inline-size: 100%; justify-content: center; }
+}
+
 /* ---------------- SUCCESS ---------------- */
 .mp-book--success { padding-block: clamp(3rem, 8vw, 5rem); }
 .mp-book__success-inner {

@@ -498,3 +498,7 @@ html[dir="rtl"] .mp-service:hover .mp-service__arrow { transform: translateX(-4p
     .mp-cta { grid-template-columns: 1fr; gap: 2.5rem; }
     .mp-cta__map { aspect-ratio: 16/10; }
 }
+@media (max-width: 560px) {
+    .mp-cta__ctas .mp-btn { flex: 1 1 100%; justify-content: center; }
+    .mp-hero__ctas .mp-btn { flex: 1 1 100%; justify-content: center; }
+}
