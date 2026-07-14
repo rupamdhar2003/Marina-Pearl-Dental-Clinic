@@ -246,6 +246,32 @@
 .mp-slot__doc  { font-size: 0.7rem; color: var(--mp-ink-500); }
 .mp-slot.is-active .mp-slot__doc { color: rgba(255,255,255,0.75); }
 
+/* Booked slot — visible but visibly unavailable and non-interactive. */
+.mp-slot.is-taken {
+    background: var(--mp-bg-alt);
+    border-color: var(--mp-border);
+    border-style: dashed;
+    color: var(--mp-ink-400);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.mp-slot.is-taken:hover {
+    background: var(--mp-bg-alt);
+    border-color: var(--mp-border);
+}
+.mp-slot.is-taken .mp-slot__time {
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--mp-ink-400);
+}
+.mp-slot.is-taken .mp-slot__doc {
+    color: var(--mp-ink-500);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    font-size: 0.62rem;
+}
+
 /* ---- details form ---- */
 .mp-book__form { display: flex; flex-direction: column; gap: 1.25rem; }
 .mp-phone {

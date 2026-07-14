@@ -5,12 +5,22 @@ export default function Logo({ variant = 'dark', showText = true }) {
     const fillAccent = 'var(--mp-gold-600)';
     return (
         <span className={`mp-logo mp-logo--${variant}`}>
-            <svg className="mp-logo__mark" viewBox="0 0 40 40" aria-hidden="true">
-                <circle cx="20" cy="20" r="18.5" fill="none" stroke={fillMark} strokeWidth="1.4" />
+            <svg
+                className="mp-logo__mark"
+                viewBox="0 0 40 40"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                {/* Molar-shaped tooth silhouette: rounded crown, two roots */}
                 <path
-                    d="M20 9c-3.6 0-5.6 2.4-5.6 4.8 0 1.9 1.2 3.1 1.9 4.9.6 1.7.6 3.6.6 5.4 0 2.4 1.3 6.7 3.1 6.7 1.2 0 1.9-2.4 2.4-5.4.1-1.3.6-1.9 1.3-1.9s1.2.7 1.4 1.9c.5 3 1.2 5.4 2.4 5.4 1.8 0 3.1-4.3 3.1-6.7 0-1.8 0-3.7.6-5.4.7-1.8 1.9-3 1.9-4.9 0-2.4-2-4.8-5.6-4.8-1.9 0-2.5 1.2-3.7 1.2s-1.9-1.2-3.8-1.2z"
-                    fill={fillAccent}
+                    d="M20 4c-6 0-9 4-9 10 0 4 1 7 1.5 10 .5 5 1.5 10 3.5 10 1.5 0 2.5-5 3.5-10 .2-2 .8-2 1 0 1 5 2 10 3.5 10 2 0 3-5 3.5-10 .5-3 1.5-6 1.5-10 0-6-3-10-9-10z"
+                    fill={fillMark}
                 />
+                {/* Pearl highlight — a small gold accent, off-centre, that
+                    reads as a shine on the tooth and echoes the brand name. */}
+                <circle cx="26" cy="10.5" r="2.2" fill={fillAccent} />
+                {/* Micro white glint on the pearl to give it depth */}
+                <circle cx="25.3" cy="9.8" r="0.7" fill="#ffffff" opacity="0.55" />
             </svg>
             {showText && (
                 <span className="mp-logo__text">

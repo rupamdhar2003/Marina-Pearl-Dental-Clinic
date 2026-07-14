@@ -13,7 +13,9 @@ function hmToMinutes(hm) {
 
 /**
  * Compute 30-minute slots for one doctor on one date (YYYY-MM-DD in Dubai TZ).
- * Returns array of ISO start strings (UTC) that are free.
+ * Returns ALL slots within working hours (past times excluded), each with a
+ * `taken` boolean so the client can render booked slots as disabled instead
+ * of hiding them.
  */
 export async function computeAvailability({ doctorId, serviceId, date }) {
     if (!doctorId || !date) throw new Error('doctor_id and date required');
@@ -61,17 +63,19 @@ export async function computeAvailability({ doctorId, serviceId, date }) {
 
     // Exclude past times (if today).
     const now = new Date();
+    const nonPast = candidates.filter((start) => start >= now);
 
-    // Filter out slots that overlap any existing pending/confirmed appt.
+    // For each remaining slot, mark whether it overlaps any pending/confirmed
+    // appointment on this doctor. Client uses the flag to disable+style it.
     const takenRanges = (appts || []).map((a) => [new Date(a.start_time), new Date(a.end_time)]);
-    const free = candidates.filter((start) => {
-        const end = addMinutes(start, durationMin);
-        if (start < now) return false;
-        return !takenRanges.some(([bStart, bEnd]) => start < bEnd && end > bStart);
-    });
 
-    return free.map((d) => ({
-        start: d.toISOString(),
-        label: tzFormat(toZonedTime(d, TZ), 'HH:mm', { timeZone: TZ }),
-    }));
+    return nonPast.map((d) => {
+        const end = addMinutes(d, durationMin);
+        const taken = takenRanges.some(([bStart, bEnd]) => d < bEnd && end > bStart);
+        return {
+            start: d.toISOString(),
+            label: tzFormat(toZonedTime(d, TZ), 'HH:mm', { timeZone: TZ }),
+            taken,
+        };
+    });
 }

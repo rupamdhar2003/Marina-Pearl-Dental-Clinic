@@ -54,11 +54,18 @@ router.get('/availability', async (req, res, next) => {
                 slots: await computeAvailability({ doctorId: d.id, serviceId: q.service_id, date: q.date }),
             }))
         );
-        // Merge, dedupe by start-time, keep first doctor per slot.
+        // Merge, dedupe by start-time. A slot is only "taken" for the
+        // "any doctor" view if EVERY doctor has it booked. Prefer a free
+        // (doctor, slot) pair when one exists so the client can book it.
         const merged = new Map();
         for (const r of results) {
             for (const s of r.slots) {
-                if (!merged.has(s.start)) merged.set(s.start, { ...s, doctor_id: r.doctor_id });
+                const existing = merged.get(s.start);
+                if (!existing) {
+                    merged.set(s.start, { ...s, doctor_id: r.doctor_id });
+                } else if (existing.taken && !s.taken) {
+                    merged.set(s.start, { ...s, doctor_id: r.doctor_id });
+                }
             }
         }
         const slots = [...merged.values()].sort((a, b) => a.start.localeCompare(b.start));

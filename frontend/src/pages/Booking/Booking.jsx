@@ -441,13 +441,18 @@ function StepTime({ strip, date, onDate, slots, loading, slot, onSlot, doctors, 
                             <button
                                 key={`${s.start}-${s.doctor_id}`}
                                 type="button"
-                                onClick={() => onSlot(s)}
-                                className={`mp-slot ${active ? 'is-active' : ''}`}
+                                disabled={s.taken}
+                                aria-disabled={s.taken || undefined}
+                                onClick={() => { if (!s.taken) onSlot(s); }}
+                                className={`mp-slot ${active ? 'is-active' : ''} ${s.taken ? 'is-taken' : ''}`}
+                                title={s.taken ? 'This slot is already booked' : undefined}
                             >
                                 <span className="mp-slot__time">{s.label}</span>
-                                {doctorMode === 'any' && doc && (
+                                {s.taken ? (
+                                    <span className="mp-slot__doc">Booked</span>
+                                ) : doctorMode === 'any' && doc ? (
                                     <span className="mp-slot__doc">{doc.name.replace('Dr. ', '')}</span>
-                                )}
+                                ) : null}
                             </button>
                         );
                     })}

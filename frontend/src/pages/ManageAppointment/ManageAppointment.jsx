@@ -153,9 +153,15 @@ export default function ManageAppointment() {
                         ) : (
                             <div className="mp-slots">
                                 {slots.map((s) => (
-                                    <button key={s.start} onClick={() => setSlot(s)}
-                                            className={`mp-slot ${slot?.start === s.start ? 'is-active' : ''}`}>
+                                    <button key={s.start}
+                                            type="button"
+                                            disabled={s.taken}
+                                            aria-disabled={s.taken || undefined}
+                                            onClick={() => { if (!s.taken) setSlot(s); }}
+                                            title={s.taken ? 'This slot is already booked' : undefined}
+                                            className={`mp-slot ${slot?.start === s.start ? 'is-active' : ''} ${s.taken ? 'is-taken' : ''}`}>
                                         <span className="mp-slot__time">{s.label}</span>
+                                        {s.taken && <span className="mp-slot__doc">Booked</span>}
                                     </button>
                                 ))}
                             </div>
