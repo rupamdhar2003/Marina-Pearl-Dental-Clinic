@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import Logo from '../Logo/Logo.jsx';
 import WhatsAppIcon from '../Icons/WhatsAppIcon.jsx';
 import { useI18n } from '../../lib/i18n.jsx';
@@ -67,6 +67,18 @@ export default function Footer() {
                     <span className="mp-footer__baseLinks">
                         <Link to="/privacy">{t('footer.privacy')}</Link>
                         <Link to="/terms">{t('footer.terms')}</Link>
+                        <span className="mp-footer__credit">
+                            Website by{' '}
+                            <a
+                                href="https://rupamdhar.in"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mp-footer__creditLink"
+                            >
+                                Rupam
+                                <ExternalLink size={12} aria-hidden="true" />
+                            </a>
+                        </span>
                     </span>
                 </div>
             </div>

@@ -63,8 +63,33 @@
     gap: 1rem;
     flex-wrap: wrap;
 }
-.mp-footer__baseLinks { display: flex; gap: 1.5rem; }
+.mp-footer__baseLinks { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
 .mp-footer__baseLinks a:hover { color: var(--mp-gold-500); }
+
+/* Credit sits inside .mp-footer__baseLinks, beside privacy/terms. */
+.mp-footer__credit {
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.02em;
+}
+.mp-footer__creditLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--mp-t) var(--mp-ease);
+    margin-inline-start: 0.15rem;
+}
+.mp-footer__creditLink:hover {
+    color: var(--mp-gold-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.mp-footer__creditLink svg {
+    opacity: 0.7;
+    margin-inline-start: 1px;
+}
 
 @media (max-width: 900px) {
     .mp-footer__grid { grid-template-columns: 1fr 1fr; }
