@@ -51,9 +51,13 @@ export async function computeAvailability({ doctorId, serviceId, date }) {
     const closeMin = hmToMinutes(hours.close);
     const durationMin = service?.duration_min ?? SLOT_MIN;
 
-    // Build candidate 30-min slots that fit before close - duration.
+    // Step slot start times by the service's own duration so a 45-min
+    // service offers 09:00 / 09:45 / 10:30 … instead of the confusing
+    // 30-min grid where alternate slots are always "booked" because they
+    // overlap the previous appointment.
+    const step = durationMin;
     const candidates = [];
-    for (let m = openMin; m + durationMin <= closeMin; m += SLOT_MIN) {
+    for (let m = openMin; m + durationMin <= closeMin; m += step) {
         const hh = String(Math.floor(m / 60)).padStart(2, '0');
         const mm = String(m % 60).padStart(2, '0');
         // Interpret HH:MM as Dubai wall time.
